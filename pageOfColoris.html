@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./pageOfColoris.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap&subset=cyrillic" rel="stylesheet">
+
+
+    <!--    calendar-->
+    <link href='fullcalendar/packages/core/main.css' rel='stylesheet'/>
+    <link href='fullcalendar/packages/daygrid/main.css' rel='stylesheet'/>
+
+    <script src='fullcalendar/packages/core/main.js'></script>
+    <script src='fullcalendar/packages/daygrid/main.js'></script>
+    <script src='fullcalendar/packages/interaction/main.js'></script>
+
+    <!--slider-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+</head>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var calendarEl = document.getElementById('calendar');
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            plugins: ['interaction', 'dayGrid'],
+            defaultView: 'dayGridMonth',
+            selectable: true,
+            editable: true,
+            events: [
+                {
+                    title: 'My Event',
+                    start: '2020-02-06',
+                    url: 'http://google.com/'
+                }
+                // other events here
+            ],
+            eventClick: function (info) {
+                info.jsEvent.preventDefault(); // don't let the browser navigate
+
+                if (info.event.url) {
+                    window.open(info.event.url);
+                }
+            }
+        });
+        calendar.render();
+    });
+</script>
+
+<body>
+
+<div class="header">
+    <ul class="header__menu-list">
+        <a href="#">
+            <img src="../coloris/img/logo-colorisoft.png" alt="" class="header__logo">
+        </a>
+        <li class="header__menu-item">
+            <a href="#">АДАПТАЦІЯ</a>
+        </li>
+        <li class="header__menu-item">
+            <a href="#">ОЦІНКА І РОЗВИТОК</a>
+        </li>
+        <li class="header__menu-item">
+            <a href="#">МОЇ ЗАДАЧІ</a>
+        </li>
+        <li class="header__menu-item">
+            <a href="#">БІБЛІОТЕКА</a>
+        </li>
+        <li class="header__menu-item">
+            <a href="#">ДЛЯ КЕРІВНИКА</a>
+        </li>
+    </ul>
+
+    <div class="header__panel">
+        <input type="text" class="header__input">
+        <ul class="header__buttons">
+            <li class="header__button">
+                <a href="#">
+                    <img src="../coloris/img/search.png" alt="" class="header__button-img">
+                </a>
+            </li>
+            <li class="header__button">
+                <a href="#">
+                    <img src="../coloris/img/chart.png" alt="" class="header__button-img">
+                </a>
+            </li>
+            <li class="header__button">
+                <a href="#">
+                    <img src="../coloris/img/pencil.png" alt="" class="header__button-img">
+                </a>
+            </li>
+            <li class="header__button">
+                <a href="#">
+                    <img src="../coloris/img/calendar.png" alt="" class="header__button-img">
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="header__cabinet">
+        <a href="#">
+            <img src="../coloris/img/user4.png" alt="" class="header__profile-photo">
+        </a>
+        <span class="header__name">Іванов Іван Іванович </span>
+        <a href="#">
+            <img src="../coloris/img/exit.png" alt="" class="header__cabinet-exit">
+        </a>
+    </div>
+</div>
+
+<div class="main-template">
+     <div class="main">
+        <div class="main__window">
+            <h2 class="main__title">КОРПОРАТИВНИЙ НАВЧАЛЬНИЙ ЦЕНТР</h2>
+            <p class="main__article">Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Eleifend donec pretium
+                vulputate sapien nec sagittis. Laoreet non curabitur
+                gravida arcu ac tortor dignissim convallis aenean.
+                Tellus pellentesque eu tincidunt tortor aliquam
+                nulla facilisi.
+            </p>
+            <button class="main__button">Детальніше</button>
+        </div>
+    </div>
+</div>
+
+
+<section class="events">
+    <div class="study">
+        <ul class="study__list">
+            <li class="study__item">
+                <img src="../coloris/img/learn.jpg" alt="">
+                <span>МОЄ НАВЧАННЯ</span>
+            </li>
+            <li class="study__item">
+                <img src="../coloris/img/materials.jpg" alt="">
+                <span> НАВЧАЛЬНІ МЕТЕРІАЛИ</span>
+            </li>
+            <li class="study__item">
+                <img src="../coloris/img/tests.jpg" alt="">
+                <span>РЕКОМЕНДОВАНІ ТЕСТИ</span>
+            </li>
+            <li class="study__item">
+                <img src="../coloris/img/courses.jpg" alt="">
+                <span>РЕКОМЕНДОВАНІ КУРСИ</span>
+            </li>
+        </ul>
+    </div>
+
+    <div id='calendar'></div>
+</section>
+
+
+<section class="goals">
+    <div class="goals__wrapper">
+        <h2 class="goals__title">КОРПОРАТИВНІ ЗАДАЧІ</h2>
+        <p class="goals__article">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.
+            Eleifend donec pretium vulputate sapien nec sagittis. Laoreet non curabitur gravida arcu ac tortor dignissim
+            convallis aenean.
+            Tellus pellentesque eu tincidunt tortor aliquam nulla facilisi.
+        </p>
+    </div>
+    <div class="goals__scheme">
+        <ul class="goals__line">
+            <div class="goals__decorate"></div>
+            <li class="goals__item-grp">
+                <a href="#">
+                    <div class="goals__circle">
+                        <div></div>
+                    </div>
+                    <span class="goals__item">Мої задачі</span>
+                </a>
+            </li>
+            <li class="goals__item-grp">
+                <a href="#">
+                    <div class="goals__circle">
+                        <div></div>
+                    </div>
+                    <span class="goals__item">Pобочі проекти</span>
+                </a>
+            </li>
+            <li class="goals__item-grp">
+                <a href="#">
+                    <div class="goals__circle">
+                        <div></div>
+                    </div>
+                    <span class="goals__item">План розвитку</span>
+                </a>
+            </li>
+            <li class="goals__item-grp">
+                <a href="#">
+                    <div class="goals__circle">
+                        <div></div>
+                    </div>
+                    <span class="goals__item">Мої досягнення</span>
+                </a>
+            </li>
+            <li class="goals__item-grp">
+                <a href="#">
+                    <div class="goals__circle">
+                        <div></div>
+                    </div>
+                    <span class="goals__item">Мої компетенції</span>
+                </a>
+            </li>
+            <li class="goals__item-grp">
+                <a href="#">
+                    <div class="goals__circle">
+                        <div></div>
+                    </div>
+                    <span class="goals__item">Звіти</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <button class="goals__button">Детальніше</button>
+</section>
+
+<section class="development">
+    <div class="development__text">
+        <h2 class="development__title">КОРПОРАТИВНІ ЗАДАЧІ</h2>
+        <p class="development__article">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.
+            Eleifend donec pretium vulputate sapien nec sagittis. Laoreet non curabitur gravida arcu ac tortor dignissim
+            convallis aenean.
+            Tellus pellentesque eu tincidunt tortor aliquam nulla facilisi.
+        </p>
+    </div>
+
+    <div class="development__schemes">
+        <!--            <div class="development__scheme-left">-->
+        <ul class="development__list-left">
+            <li class="development__item-left">
+                <a href="#">
+                    <span>Наша команда</span>
+                    <div class="dev-circle"></div>
+                </a>
+            </li>
+            <li class="development__item-left">
+                <a href="#">
+                    <span>Оргструктура</span>
+                    <div class="dev-circle"></div>
+                </a>
+            </li>
+            <li class="development__item-left">
+                <a href="#">
+                    <span>Адресна книга</span>
+                    <div class="dev-circle"></div>
+                </a>
+            </li>
+            <li class="development__item-left">
+                <a href="#">
+                    <span>База знань</span>
+                    <div class="dev-circle"></div>
+                </a>
+            </li>
+        </ul>
+        <!--            </div>-->
+        <div class="development__scheme-img"><img src="../coloris/img/background_wood.png" alt=""></div>
+        <!--            <div class="development__scheme-right">-->
+        <ul class="development__list-right">
+            <li class="development__item-right">
+                <a href="#">
+                    <div class="dev-circle"></div>
+                    <span>Кар'єрний розвиток</span>
+                </a>
+            </li>
+            <li class="development__item-right">
+                <a href="#">
+                    <div class="dev-circle"></div>
+                    <span>Документація</span>
+                </a>
+            </li>
+            <li class="development__item-right">
+                <a href="#">
+                    <div class="dev-circle"></div>
+                    <span>Опитування</span>
+                </a>
+            </li>
+            <li class="development__item-right">
+                <a href="#">
+                    <div class="dev-circle"></div>
+                    <span>Форум</span>
+                </a>
+            </li>
+        </ul>
+        <!--            </div>-->
+    </div>
+</section>
+
+<section class="reporting">
+    <div class="reporting__text">
+        <h2 class="reporting__title">КОРПОРАТИВНА ЗВІТНІСТЬ</h2>
+        <p class="reporting__article">Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Eleifend donec pretium
+            vulputate sapien nec sagittis. Laoreet non curabitur
+            gravida arcu ac tortor dignissim convallis aenean.
+            Tellus pellentesque eu tincidunt tortor aliquam
+            nulla facilisi.
+        </p>
+    </div>
+
+
+    <div class="reporting__window">
+        <div class="reporting__chart"></div>
+        <div class="reporting__table">
+            <div class="reporting__table-header">
+                <img src="../coloris/img/note.png" alt="" class="reporting__img">
+                <span>ЗВІТНІСТЬ</span>
+            </div>
+            <ul class="reporting__list">
+                <li class="reporting__item"><a href="#">Звіт про фінансові результати.docx</a></li>
+                <li class="reporting__item"><a href="#">Примітки до річної звітності.docx</a></li>
+                <li class="reporting__item"><a href="#">Форми звітів для співробітників.docx</a></li>
+                <li class="reporting__item"><a href="#">Звіти до ДПС.docx</a></li>
+                <li class="reporting__item"><a href="#">Примітки до річної звітності.docx</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="news">
+    <div class="news__header">
+        <span class="site-news">НОВИНИ ПОРТАЛУ</span>
+        <span class="all-news">Всі новини</span>
+    </div>
+
+    <div class="news__wrapper">
+        <div class="news__card">
+            <img src="../coloris/img/news1.jpg" alt="">
+            <div class="news__date-name">
+                <span class="news__name">НОВИНА 1</span>
+                <span class="news__date">10.09.2019</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqa.
+                Eleifend donec pretium vulputate sapien
+                nec sagittis.
+            </p>
+            <button class="news__button">Детальніше</button>
+        </div>
+
+        <div class="news__card">
+            <img src="../coloris/img/news2.jpg" alt="">
+            <div class="news__date-name">
+                <span class="news__name">НОВИНА 2</span>
+                <span class="news__date">10.09.2019</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqa.
+                Eleifend donec pretium vulputate sapien
+                nec sagittis.
+            </p>
+            <button class="news__button">Детальніше</button>
+        </div>
+
+        <div class="news__card">
+            <img src="../coloris/img/news3.jpg" alt="">
+            <div class="news__date-name">
+                <span class="news__name">НОВИНА 3</span>
+                <span class="news__date">10.09.2019</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqa.
+                Eleifend donec pretium vulputate sapien
+                nec sagittis.
+            </p>
+            <button class="news__button">Детальніше</button>
+        </div>
+
+        <div class="news__card">
+            <img src="../coloris/img/news4.jpg" alt="">
+            <div class="news__date-name">
+                <span class="news__name">НОВИНА 4</span>
+                <span class="news__date">10.09.2019</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqa.
+                Eleifend donec pretium vulputate sapien
+                nec sagittis.
+            </p>
+            <button class="news__button">Детальніше</button>
+        </div>
+    </div>
+</section>
+
+<section class="team">
+    <h2>МОЯ КОМАНДА</h2>
+
+
+    <div class="slider-wrap">
+        <img src="../coloris/img/arrow-left.svg" alt="" class="previous">
+        <div class="slider">
+            <div class="slide">
+                <img src="../coloris/img/user1.png" alt="">
+                <span class="team__name">ПЕТРО ПЕТРОВ</span>
+                <span class="team__job">Бізнес аналітик</span>
+            </div>
+
+            <div class="slide">
+                <img src="../coloris/img/user2.png" alt="">
+                <span class="team__name">ГАННА МИХАЙЛОВА</span>
+                <span class="team__job">Менеджер з продажу</span>
+            </div>
+
+            <div class="slide">
+                <img src="../coloris/img/user3.png" alt="">
+                <span class="team__name">МАРІЯ ФЕДОРОВА</span>
+                <span class="team__job">Дизайнер</span>
+            </div>
+
+            <div class="slide">
+                <img src="../coloris/img/user4.png" alt="">
+                <span class="team__name">МИХАЙЛО ІВАНОВ</span>
+                <span class="team__job">Технічний спеціаліст</span>
+            </div>
+
+            <div class="slide">
+                <img src="../coloris/img/user4.png" alt="">
+                <span class="team__name">МИХАЙЛО ІВАНОВ</span>
+                <span class="team__job">Технічний спеціаліст</span>
+            </div>
+
+            <div class="slide">
+                <img src="../coloris/img/user4.png" alt="">
+                <span class="team__name">МИХАЙЛО ІВАНОВ</span>
+                <span class="team__job">Технічний спеціаліст</span>
+            </div>
+        </div>
+        <img src="../coloris/img/arrow.svg" alt="" class="next">
+    </div>
+</section>
+
+<footer>
+    <img src="../coloris/img/footer-logo.svg" alt="" class="footer__logo">
+    <div class="info-wrap">
+        <ul class="footer-list">
+            <li class="footer-list__title">корпоративне навчання</li>
+            <li class="footer-item"><a href="#">Рекомендовані курси</a></li>
+            <li class="footer-item"><a href="#">Рекомендовані тести</a></li>
+            <li class="footer-item"><a href="#">Навчальні матеріали</a></li>
+            <li class="footer-item"><a href="#">База знань</a></li>
+            <li class="footer-item"><a href="#">Відеобібліотека</a></li>
+        </ul>
+        <ul class="footer-list">
+            <li class="footer-list__title">корпоративний розвиток</li>
+            <li class="footer-item"><a href="#">Кар'єрний розвиток</a></li>
+            <li class="footer-item"><a href="#">Робочі проекти</a></li>
+            <li class="footer-item"><a href="#">Мої компетенції</a></li>
+            <li class="footer-item"><a href="#">Мої досягнення</a></li>
+        </ul>
+        <ul class="footer-list">
+            <li class="footer-list__title">корпоративна звітність</li>
+            <li class="footer-item"><a href="#">Документація</a></li>
+            <li class="footer-item"><a href="#">Форми корпоративних звітів</a></li>
+            <li class="footer-item"><a href="#">Шаблони</a></li>
+        </ul>
+        <ul class="footer-list">
+            <li class="footer-list__title">про компанію</li>
+            <li class="footer-item"><a href="#">Наша команда</a></li>
+            <li class="footer-item"><a href="#">Оргстуктура</a></li>
+            <li class="footer-item"><a href="#">Адресна книга</a></li>
+            <li class="footer-item"><a href="#">Новини </a></li>
+        </ul>
+    </div>
+
+    <div class="social">
+        <ul class="social-list">
+            <li class="social-logo"><a href="#"><img src="../coloris/img/fb.png" alt=""></a></li>
+            <li class="social-logo"><a href="#"><img src="../coloris/img/google.png" alt=""></a></li>
+            <li class="social-logo"><a href="#"><img src="../coloris/img/linkedin.png" alt=""></a></li>
+            <li class="social-logo"><a href="#"><img src="../coloris/img/youtube.png" alt=""></a></li>
+            <li class="social-logo"><a href="#"><img src="../coloris/img/sicher.png" alt=""></a></li>
+        </ul>
+    </div>
+</footer>
+
+</body>
+</html>
+
+<script>
+    $('.next').on('click', function () {
+        $('.slider').slick('slickNext');
+    });
+
+    $('.previous').on('click', function () {
+        $('.slider').slick('slickPrev');
+    });
+
+    $('.slider').slick({
+        dots: false,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 4,
+        adaptiveHeight: true,
+        arrows: false
+    });
+</script>
