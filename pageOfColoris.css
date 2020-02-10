@@ -567,3 +567,20 @@ footer {
     justify-content: space-between;
 }
 
+.current-month {
+    font-weight: bold;
+}
+
+.header__button::before {
+    content: 'тут будет стандартное всплывающее окно WebTutor';
+    background: white;
+    display: none;
+    padding: 20px;
+    font-size: 12px;
+}
+
+.header__button:hover::before {
+    display: block;
+    position: absolute;
+    top: 70px;
+}
