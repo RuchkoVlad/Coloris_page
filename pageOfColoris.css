@@ -130,7 +130,7 @@ body    {
 }
 
 .study  {
-    margin-top: 63px;
+    width: 35%;
 }
 
 .study__list {
@@ -143,6 +143,7 @@ body    {
 }
 
 .study__item img{
+    margin-bottom: 15px;
     width: 150px;
     height: 150px;
 }
@@ -153,13 +154,22 @@ body    {
     align-items: center;
     width: 50%;
     margin-bottom: 50px;
+    text-decoration: none;
+    color: black;
 }
+
+.study__item li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .study__item span{
     line-height: 35px;
 }
 
 #calendar {
-    width: 65%;
+    width: 100%;
 }
 
 .goals {
@@ -179,7 +189,7 @@ body    {
     margin-bottom: 10px;
 }
 
-.goals__wrapper {
+.goals__wrapper-section {
     width: 810px;
     padding: 50px;
 }
@@ -433,7 +443,6 @@ body    {
 
 .next, .previous {
     cursor: pointer;
-    width: 70px;
 }
 
 .previous {
@@ -583,4 +592,309 @@ footer {
     display: block;
     position: absolute;
     top: 70px;
+}
+
+
+/*CALENDAR*/
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+button {
+    cursor: pointer;
+}
+
+.calendar__wrapper {
+    width: 100%;
+}
+
+.row {
+    display: flex;
+}
+
+.row:first-child .cell {
+    height: 40px;
+}
+
+
+.cell, .cell-current {
+    height: 130px;
+    width: 100%;
+    border: 1px solid #dbdbdb;
+    font-weight: 500;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.calendar-block {
+    border: 1px solid #dbdbdb;
+    box-sizing: border-box;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.month-navigate {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    border: 1px solid lightgray;
+    background: floralwhite;
+}
+
+.calendar-block__title {
+    letter-spacing: 2px;
+    font-size: 28px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.weekend {
+    color: #ff2020;
+}
+
+.row:first-child {
+    color: #8fc17d;
+}
+
+.row:first-child .weekend {
+    background: #fef1f2;
+}
+
+.cell-current {
+    position: relative;
+    background: lightgoldenrodyellow;
+}
+
+.square {
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+}
+
+.calendar__description {
+    border: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+    padding: 15px 0;
+    margin: 0;
+}
+
+.calendar__description li {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.calendar__description span {
+    margin-left: 10px;
+}
+
+.square--plan {
+    background: #71bae4;
+}
+
+.square--doing {
+    background: #abe4b1;
+}
+
+.square--done {
+    background: #a5a5a5;
+}
+
+.current-month {
+    font-weight: bold;
+}
+
+.calendar-event {
+    padding-left: 3px;
+    color: black;
+    width: 23px;
+    font-size: 16px;
+    font-weight: lighter;
+    margin: 3px 0;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.calendar-event img {
+    width: 20px;
+    height: 20px;
+    margin-right: 7px;
+}
+
+.now {
+    background: #abe4b1;
+}
+
+.over {
+    background: #a5a5a5;
+}
+
+.planning {
+    background: #71bae4;
+}
+
+
+/*WEEKLY CALENDAR!!!!*/
+#typeOfTask, #typeOfTaskDay {
+    width: 200px;
+    height: 35px;
+    font-size: 16px;
+    padding: 0 5px;
+}
+
+.previous,
+.next,
+.week-previous,
+.week-next,
+.day-previous,
+.day-next {
+    color: black;
+    border: none;
+    margin: 20px 0;
+    padding: 0 20px;
+    cursor: pointer;
+    outline: none;
+    background: none;
+}
+
+.week-navigate, .day-navigate {
+    box-sizing: border-box;
+    display: flex;
+    border: 1px solid lightgray;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    background: floralwhite;
+    border-bottom: none;
+}
+
+#calendar-week, #calendar-day {
+    border: 1px solid #dbdbdb;
+    border-top: none;
+    padding: 30px;
+    box-sizing: border-box;
+    margin: 0 auto 30px;
+}
+
+.filter-block {
+    margin-bottom: 30px;
+}
+
+.table-titles {
+    display: flex;
+}
+
+.table-titles__wrapper {
+    display: flex;
+    background: #f8f8f8;
+    padding: 20px 10px;
+    justify-content: space-between;
+    border: 1px solid lightgrey;
+}
+
+.day-of-week {
+    text-align: center;
+    padding: 5px 0;
+    border: 1px solid #dbdbdb;
+    background: #cef3de;
+    border-bottom: none;
+}
+
+.goal__img {
+    width: 30px;
+    margin-right: 20px;
+}
+
+.goal {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.goal__item {
+    margin-right: 10px;
+}
+
+.task-type {
+    width: 130px;
+}
+
+.goal__type-wrapper {
+    width: 130px;
+    display: flex;
+    align-items: center;
+}
+
+.task-start, .goal__start, .task-end, .goal__end {
+    width: 110px;
+}
+
+.button-navigate {
+    width: 100%;
+    height: 55px;
+    background: #f8f8f8;
+    font-weight: bold;
+    border: 1px solid #dbdbdb;
+}
+
+.buttons-navigate {
+    width: 100%;
+    display: flex;
+}
+
+.week {
+    border-left: 1px solid #dbdbdb;
+    border-right: 1px solid #dbdbdb;
+}
+
+.active-calendar-btn {
+    background: white;
+    color: #77b660;
+    border-top: 2px solid #77b660;
+    outline: none;
+}
+
+.goal__teacher {
+    margin-left: auto;
+}
+
+.active-calendar {
+    display: flex;
+}
+
+#calendar-week {
+    display: none;
+}
+
+.no-plans {
+    margin: 0 auto;
+}
+
+.current-day, .current-week {
+    font-weight: bold;
+}
+
+.no-data {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-data img {
+    width: 30px;
+    margin-right: 15px;
+}
+
+.all-calendars-wrapper {
+    width: 65%;
 }

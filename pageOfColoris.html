@@ -4,17 +4,8 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="./pageOfColoris.css">
-
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap&subset=cyrillic" rel="stylesheet">
-
-
-    <!--    calendar-->
-    <link href='fullcalendar/packages/core/main.css' rel='stylesheet'/>
-    <link href='fullcalendar/packages/daygrid/main.css' rel='stylesheet'/>
-
-    <script src='fullcalendar/packages/core/main.js'></script>
-    <script src='fullcalendar/packages/daygrid/main.js'></script>
-    <script src='fullcalendar/packages/interaction/main.js'></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap&subset=cyrillic"
+          rel="stylesheet">
 
     <!--slider-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -22,37 +13,7 @@
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </head>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var calendarEl = document.getElementById('calendar');
-
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            plugins: ['interaction', 'dayGrid'],
-            defaultView: 'dayGridMonth',
-            selectable: true,
-            editable: true,
-            events: [
-                {
-                    title: 'My Event',
-                    start: '2020-02-06',
-                    url: 'http://google.com/'
-                }
-                // other events here
-            ],
-            eventClick: function (info) {
-                info.jsEvent.preventDefault(); // don't let the browser navigate
-
-                if (info.event.url) {
-                    window.open(info.event.url);
-                }
-            }
-        });
-        calendar.render();
-    });
-</script>
-
 <body>
-
 <div class="header">
     <ul class="header__menu-list">
         <a href="#">
@@ -113,7 +74,7 @@
 </div>
 
 <div class="main-template">
-     <div class="main">
+    <div class="main">
         <div class="main__window">
             <h2 class="main__title">КОРПОРАТИВНИЙ НАВЧАЛЬНИЙ ЦЕНТР</h2>
             <p class="main__article">Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -133,31 +94,209 @@
 <section class="events">
     <div class="study">
         <ul class="study__list">
-            <li class="study__item">
-                <img src="./img/learn.jpg" alt="">
-                <span>МОЄ НАВЧАННЯ</span>
-            </li>
-            <li class="study__item">
-                <img src="./img/materials.jpg" alt="">
-                <span> НАВЧАЛЬНІ МЕТЕРІАЛИ</span>
-            </li>
-            <li class="study__item">
-                <img src="./img/tests.jpg" alt="">
-                <span>РЕКОМЕНДОВАНІ ТЕСТИ</span>
-            </li>
-            <li class="study__item">
-                <img src="./img/courses.jpg" alt="">
-                <span>РЕКОМЕНДОВАНІ КУРСИ</span>
-            </li>
+            <a href="#" class="study__item">
+                <li>
+                    <img src="./img/learn.jpg" alt="">
+                    <span>МОЄ НАВЧАННЯ</span>
+                </li>
+            </a>
+            <a href="#" class="study__item">
+                <li>
+                    <img src="./img/materials.jpg" alt="">
+                    <span> НАВЧАЛЬНІ МЕТЕРІАЛИ</span>
+                </li>
+            </a>
+            <a href="#" class="study__item">
+                <li>
+                    <img src="./img/tests.jpg" alt="">
+                    <span>РЕКОМЕНДОВАНІ ТЕСТИ</span>
+                </li>
+            </a>
+            <a href="#" class="study__item">
+                <li>
+                    <img src="./img/courses.jpg" alt="">
+                    <span>РЕКОМЕНДОВАНІ КУРСИ</span>
+                </li>
+            </a>
         </ul>
     </div>
 
-    <div id='calendar'></div>
+    <div class="all-calendars-wrapper">
+        <div class="buttons-navigate">
+            <button class="month button-navigate" onclick="createCalendar(setYear, setMonth)">НА МІСЯЦЬ</button>
+            <button class="week button-navigate" onclick="createWeeklyCalendar()">НА ТИЖДЕНЬ</button>
+            <button class="day button-navigate" onclick="createDailyCalendar()">НА ДЕНЬ</button>
+        </div>
+
+        <div class="calendar-block">
+            <div class="month-navigate">
+                <button class="previous" onclick="previousMonth()"> ← Попередній місяць</button>
+                <div class="current-month"></div>
+                <button class="next" onclick="nextMonth()"> Наступний місяц →</button>
+            </div>
+            <div class="calendar__wrapper">
+                <div id="calendar"></div>
+                <div class="calendar__footer">
+                    <ul class="calendar__description">
+                        <li>
+                            <img src="https://img.icons8.com/dotty/80/000000/appointment-scheduling.png" class="square">
+                            <span>ЗАХОДИ</span></li>
+                        <li>
+                            <img src="https://img.icons8.com/ios/50/000000/headphones.png" class="square">
+                            <span>ВЕБІНАР</span>
+                        </li>
+                        <li>
+                            <img src="https://img.icons8.com/dotty/80/000000/courses.png" class="square">
+                            <span>КУРС</span>
+                        </li>
+                        <li>
+                            <img src="https://img.icons8.com/dotty/80/000000/syllabus.png" class="square">
+                            <span>ТЕСТ</span>
+                        </li>
+                        <li>
+                            <div class="square square--plan"></div>
+                            <span>ПЛАНУЄТЬСЯ</span>
+                        </li>
+                        <li>
+                            <div class="square square--doing"></div>
+                            <span>ПРОВОДИТЬСЯ</span>
+                        </li>
+                        <li>
+                            <div class="square square--done"></div>
+                            <span>ЗАВЕРШЕНО</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--WEEKLY CALENDAR!!!!-->
+        <div id="calendar-week">
+            <div class="filter-block">
+                <p class="filter-name">Тип завдання</p>
+                <select id="typeOfTask" onchange="filterForWeeklyTasks()">
+                    <option value="all" selected>Все</option>
+                    <option value="Митинг">Мітинг</option>
+                    <option value="Тест">Тест</option>
+                    <option value="Курс">Курс</option>
+                    <option value="Мероприятие">Захід</option>
+                    <option value="Вебинар">Вебінар</option>
+                </select>
+            </div>
+            <div class="week-navigate">
+                <button class="week-previous" onclick="previousWeek()"> ← Попередній тиждень</button>
+                <div class="current-week"></div>
+                <button class="week-next" onclick="nextWeek()"> Наступний тиждень →</button>
+            </div>
+            <div class="table-titles__wrapper">
+                <div class="table-titles">
+                    <div class="task task-type">Тип завдання</div>
+                    <div class="task task-start">Початок</div>
+                    <div class="task task-end">Завершення</div>
+                    <div class="task task-name">Назва</div>
+                </div>
+                <div class="task task-teacher">Викладач</div>
+            </div>
+            <div class="goals__wrapper"></div>
+            <div class="calendar__footer">
+                <ul class="calendar__description">
+                    <li>
+                        <img src="https://img.icons8.com/dotty/80/000000/appointment-scheduling.png" class="square">
+                        <span>ЗАХІД</span></li>
+                    <li>
+                        <img src="https://img.icons8.com/ios/50/000000/headphones.png" class="square">
+                        <span>ВЕБІНАР</span>
+                    </li>
+                    <li>
+                        <img src="https://img.icons8.com/dotty/80/000000/courses.png" class="square">
+                        <span>КУРС</span>
+                    </li>
+                    <li>
+                        <img src="https://img.icons8.com/dotty/80/000000/syllabus.png" class="square">
+                        <span>ТЕСТ</span>
+                    </li>
+                    <li>
+                        <div class="square square--plan"></div>
+                        <span>ПЛАНУЄТЬСЯ</span>
+                    </li>
+                    <li>
+                        <div class="square square--doing"></div>
+                        <span>ПРОВОДИТЬСЯ</span>
+                    </li>
+                    <li>
+                        <div class="square square--done"></div>
+                        <span>ЗАВЕРШЕНО</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--DAILY CALENDAR-->
+        <div id="calendar-day">
+            <div class="filter-block">
+                <p class="filter-name">Тип задачи</p>
+                <select id="typeOfTaskDay" onchange="filterForDailyTasks()">
+                    <option value="all" selected>Все</option>
+                    <option value="Митинг">Митинг</option>
+                    <option value="Тест">Тест</option>
+                    <option value="Курс">Курс</option>
+                    <option value="Мероприятие">Мероприятие</option>
+                    <option value="Вебинар">Вебинар</option>
+                </select>
+            </div>
+            <div class="day-navigate">
+                <button class="day-previous" onclick="previousDay()"> ← Предыдущий день</button>
+                <div class="current-day"></div>
+                <button class="day-next" onclick="nextDay()"> Следующий день →</button>
+            </div>
+            <div class="table-titles__wrapper">
+                <div class="table-titles">
+                    <div class="task task-type">Тип завдання</div>
+                    <div class="task task-start">Початок</div>
+                    <div class="task task-end">Завершення</div>
+                    <div class="task task-name">Назва</div>
+                </div>
+                <div class="task task-teacher">Викладач</div>
+            </div>
+            <div class="day-goals__wrapper"></div>
+            <div class="calendar__footer">
+                <ul class="calendar__description">
+                    <li>
+                        <img src="https://img.icons8.com/dotty/80/000000/appointment-scheduling.png" class="square">
+                        <span>ЗАХІД</span></li>
+                    <li>
+                        <img src="https://img.icons8.com/ios/50/000000/headphones.png" class="square">
+                        <span>ВЕБІНАР</span>
+                    </li>
+                    <li>
+                        <img src="https://img.icons8.com/dotty/80/000000/courses.png" class="square">
+                        <span>КУРС</span>
+                    </li>
+                    <li>
+                        <img src="https://img.icons8.com/dotty/80/000000/syllabus.png" class="square">
+                        <span>ТЕСТ</span>
+                    </li>
+                    <li>
+                        <div class="square square--plan"></div>
+                        <span>ПЛАНУЄТЬСЯ</span>
+                    </li>
+                    <li>
+                        <div class="square square--doing"></div>
+                        <span>ПРОВОДИТЬСЯ</span>
+                    </li>
+                    <li>
+                        <div class="square square--done"></div>
+                        <span>ЗАВЕРШЕНО</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </section>
 
 
 <section class="goals">
-    <div class="goals__wrapper">
+    <div class="goals__wrapper-section">
         <h2 class="goals__title">КОРПОРАТИВНІ ЗАДАЧІ</h2>
         <p class="goals__article">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua.
@@ -484,8 +623,16 @@
 
 </body>
 </html>
-
+<script src="myCalendar.js"></script>
+<script src="monthCalendar.js"></script>
+<script src="weekCalendar.js"></script>
+<script src="dayCalendar.js"></script>
 <script>
+
+    $(document).ready(function () {
+
+    });
+
     $('.next').on('click', function () {
         $('.slider').slick('slickNext');
     });
