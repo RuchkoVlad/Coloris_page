@@ -363,13 +363,6 @@ body    {
     align-items: center;
 }
 
-.reporting__window {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 50px;
-    padding: 0 30px;
-}
-
 .reporting__list {
     list-style: none;
     padding: 0;
@@ -381,20 +374,11 @@ body    {
     margin-right: 15px;
 }
 
-.reporting__table   {
-    width: 49%;
-}
-
 .reporting__table-header {
     font-weight: bold;
     display: flex;
     align-items: flex-end;
     color: #23363D;
-}
-
-.reporting__chart {
-    width: 49%;
-    background: url("./img/chart-screen.png") no-repeat;
 }
 
 .reporting__item a {
@@ -897,4 +881,12 @@ button {
 
 .all-calendars-wrapper {
     width: 65%;
+}
+
+.reporting__window {
+    display: flex;
+}
+
+.reporting__chart, .reporting__table {
+    width: 50%;
 }
